@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="5dp"
+    app:cardCornerRadius="12dp"
+    android:layout_margin="5dp"
+     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/img"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="9dp"
+        android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/date"
+            android:text="date"
+            android:layout_toRightOf="@id/img"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+        <TextView
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/img"
+            android:layout_below="@id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/weather"
+            android:text="weather"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+        <TextView
+            android:layout_below="@id/weather"
+            android:layout_toRightOf="@id/img"
+            android:layout_marginLeft="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tempmax"
+            android:text="tempmax"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+        <TextView
+            android:layout_marginLeft="2dp"
+            android:layout_below="@id/tempmax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tempmin"
+            android:layout_toRightOf="@id/img"
+            android:text="tempmin"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+            />
+
+        <TextView
+            android:layout_below="@id/tempmin"
+            android:layout_toRightOf="@id/img"
+            android:id="@+id/humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="humidity"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
