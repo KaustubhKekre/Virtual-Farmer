@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Landing"
+        android:title="Farms"
         android:id="@+id/landing"
-
+        android:icon="@drawable/farms"
         />
+    <item
+        android:title="Tracker"
+        android:id="@+id/tracker"
+        android:icon="@drawable/tracker"
+        />
+
     <item
         android:title="Weather"
         android:id="@+id/weather"

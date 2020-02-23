@@ -46,9 +46,9 @@ public class weatheradapter extends RecyclerView.Adapter<weatheradapter.viewhold
         double tempmax1=tempmax[i];
         double humidity1=humidity[i];
         viewholder.date.setText(d1.substring(8,10)+d1.substring(4,5)+d1.substring(5,7)+d1.substring(4,5)+d1.substring(0,4)+" "+d1.substring(11,16));
-        viewholder.tempmax.setText("Max. Temp.="+String.valueOf(tempmax1)+"°C");
+        viewholder.tempmax.setText("Max. Temp.="+String.valueOf(tempmax1-273.15).substring(0,4)+"°C");
         viewholder.weather.setText(w1.substring(0,1).toUpperCase()+w1.substring(1));
-        viewholder.tempmin.setText("Min. Temp.="+String.valueOf(tempmin1)+"°C");
+        viewholder.tempmin.setText("Min. Temp.="+String.valueOf(tempmin1-273.15).substring(0,4)+"°C");
         viewholder.humidity.setText("Humidity="+String.valueOf(humidity1)+"%");
 
     }

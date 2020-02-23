@@ -27,9 +27,6 @@ public class List {
     @SerializedName("dt_txt")
     @Expose
     private String dtTxt;
-    @SerializedName("rain")
-    @Expose
-    private Rain rain;
 
     public Integer getDt() {
         return dt;
@@ -85,14 +82,6 @@ public class List {
 
     public void setDtTxt(String dtTxt) {
         this.dtTxt = dtTxt;
-    }
-
-    public Rain getRain() {
-        return rain;
-    }
-
-    public void setRain(Rain rain) {
-        this.rain = rain;
     }
 
 }

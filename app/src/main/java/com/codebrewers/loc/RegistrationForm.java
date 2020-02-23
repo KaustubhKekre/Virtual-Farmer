@@ -44,7 +44,7 @@ SharedPreferences.Editor edit;
                 RegistrationModel registrationModel=new RegistrationModel(email.getText().toString(),
                         username.getText().toString(),phone_number.getText().toString(),
                         password.getText().toString());
-                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8000/api/").addConverterFactory(
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.48:8000/api/").addConverterFactory(
                         GsonConverterFactory.create()).build();
                 RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
                 Call<RegistrationModel> registrationModelCall = retrofitInterface.registerUser(registrationModel);

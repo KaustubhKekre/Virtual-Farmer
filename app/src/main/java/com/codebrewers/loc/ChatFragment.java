@@ -28,7 +28,7 @@ public class ChatFragment extends Fragment {
         livestock=v.findViewById(R.id.livestock);
         soil=v.findViewById(R.id.soil);
         final Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://red-hat-pirates-video-call.herokuapp.com/"));
+                Uri.parse("https://cb-video-call.herokuapp.com/"));
         crop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

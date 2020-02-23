@@ -44,7 +44,7 @@ String user,pwd;
                 login.setVisibility(View.GONE);
                 progress_login.setVisibility(View.VISIBLE);
                 LogInRequest logInRequest=new LogInRequest(user,pwd);
-                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8000/api/").addConverterFactory(
+                Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.48:8000/api/").addConverterFactory(
                         GsonConverterFactory.create()).build();
                 RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
                 Call<LogInResponse>logInResponseCall=retrofitInterface.logIn(logInRequest);

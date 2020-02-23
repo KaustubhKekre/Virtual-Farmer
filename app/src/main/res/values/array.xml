@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="soil">
+        <item>Red Soil</item>
+        <item>Black Soil</item>
+        <item>Clay Soil</item>
+        <item>Peaty Soil</item>
+        <item>Loam Soil</item>
+    </string-array>
+</resources>

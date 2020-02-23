@@ -17,9 +17,11 @@ public interface RetrofitInterface {
     Call<LogInResponse> logIn(@Body LogInRequest logInRequest);
 
     @GET("forecast")
-    Call<WeatherPOJO> getWeatherData(@Query("lat") String lat,@Query("lon") String lon, @Query("APPID") String akey);
+    Call<WeatherPOJO> getWeatherData(@Query("lat") String lat,@Query("lon") String lon, @Query("APPID") String akey,@Query("units") String units);
 
-    @GET("forecast")
-    Call<WeatherPOJO> getData(@Query("id") String id,@Query("appid") String akey);
+    @GET("notify")
+    Call<notify> getNotif();
 
+@POST("crops-data/")
+    Call<CropsList> getCrops(@Body LogInRequest logInRequest);
 }

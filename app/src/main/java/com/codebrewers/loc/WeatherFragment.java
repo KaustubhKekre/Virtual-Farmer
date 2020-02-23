@@ -48,7 +48,7 @@ public class WeatherFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         SharedPreferences spref;
         final TextView apology;
@@ -58,35 +58,38 @@ public class WeatherFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.openweathermap.org/data/2.5/").addConverterFactory(GsonConverterFactory.create()).build();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
         spref = v.getContext().getSharedPreferences("user", MODE_PRIVATE);
-       // Call<WeatherPOJO> weatherPOJOCall = retrofitInterface.getWeatherData(spref.getString("lat","19.0760"),spref.getString("lon","72.8777"),"fa4ff94bda4c3a3b60a3b30d62821f9b");
+        Call<WeatherPOJO> weatherPOJOCall = retrofitInterface.getWeatherData(spref.getString("lat","19.1071"),spref.getString("lon","72.8777"),"fa4ff94bda4c3a3b60a3b30d62821f9b","metrics");
+        System.out.println(""+spref.getString("lat","19.0760")+" "+spref.getString("lon","72.8373"));
 
-       Call<WeatherPOJO> weatherPOJOCall = retrofitInterface.getData("524901","fa4ff94bda4c3a3b60a3b30d62821f9b");
         weatherPOJOCall.enqueue(new Callback<WeatherPOJO>() {
             @Override
             public void onResponse(Call<WeatherPOJO> call, Response<WeatherPOJO> response) {
                 if(response.body()!=null){
                     WeatherPOJO weatherPOJO = response.body();
                     count=weatherPOJO.getCnt();
+                    System.out.println("count"+count);
+
+
+                    ArrayList<List> weather = (ArrayList<List>)weatherPOJO.getList();
                     w=new String[count];
                     img=new String[count];
                     d=new String[count];
                     tempmin=new double[count];
                     tempmax=new double[count];
                     humidity=new double[count];
-
-                    ArrayList<List> weather = (ArrayList<List>)weatherPOJO.getList();
                     for(int i=0;i<count;i++){
+
                         d[i] = weather.get(i).getDtTxt();
                         tempmin[i] = weather.get(i).getMain().getTempMin();
                         tempmax[i] = weather.get(i).getMain().getTempMax();
                         humidity[i] = weather.get(i).getMain().getHumidity();
-                        w[i]=weather.get(i).getWeather().get(i).getDescription();
-                        img[i]=weather.get(i).getWeather().get(i).getIcon();
-                    }
-                    RecyclerView recyclermumbai = v.findViewById(R.id.recycler);
-                    recyclermumbai.setLayoutManager(new LinearLayoutManager(v.getContext()));
+                        w[i]=weather.get(i).getWeather().get(0).getDescription();
+                        img[i]=weather.get(i).getWeather().get(0).getIcon();
+                   }
+                    RecyclerView recycler = v.findViewById(R.id.recycler);
+                    recycler.setLayoutManager(new LinearLayoutManager(v.getContext()));
                     pbar.setVisibility(View.GONE);
-                    recyclermumbai.setAdapter(new weatheradapter(w, d, tempmin, tempmax, humidity,img));
+                    recycler.setAdapter(new weatheradapter(w, d, tempmin, tempmax, humidity,img));
                 }
                 else{
                     pbar.setVisibility(View.GONE);
